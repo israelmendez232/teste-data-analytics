@@ -8,13 +8,13 @@ Pequeno teste técnico para uma posição em Data Analytics. Separado nas seguit
 
 - [ ] **Tratamento dos dados**:
   
-  - [ ] JSON
+  - [ X ] JSON
   
   - [ ] GZIP
   
-  - [ ] CSV
+  - [ X ] CSV
   
-  - [ ] TXT
+  - [ X ] TXT
 
 - [ ] Dando UP no DB para cada um deles.
 
