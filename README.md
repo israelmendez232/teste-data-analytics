@@ -2,23 +2,19 @@
 
 Pequeno teste técnico para uma posição em Data Analytics. Separado nas seguitnes etapas:
 
-
-
 ## 1. Ingestão de Dados
 
 - [ ] **Tratamento dos dados**:
   
-  - [ X ] JSON
+  - [x] JSON
   
-  - [ ] GZIP
+  - [x] GZIP
   
-  - [ X ] CSV
+  - [x] CSV
   
-  - [ X ] TXT
+  - [ ] TXT
 
 - [ ] Dando UP no DB para cada um deles.
-
-
 
 ## 2. Consultas SQL
 
@@ -34,23 +30,17 @@ Pequeno teste técnico para uma posição em Data Analytics. Separado nas seguit
 
 - [ ] Salvar os resultados das querys em .csv + script em .sql
 
-
-
 ## **3. Consultas Python/Pandas**
 
 - [ ] asdasdasdasd
 
 - [ ] asdasdasd
 
-
-
 ## **4. Visualização dos dados**
 
 - [ ] asdasdasdasd
 
 - [ ] asdasdasd
-
-
 
 ## **5. Proposta de Arquitetura de Dados.**
 

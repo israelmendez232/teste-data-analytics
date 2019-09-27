@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 arquivo.pdf
 config.cfg
+.vscode
