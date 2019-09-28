@@ -4,6 +4,7 @@ import pandas as pd
 import pyarrow
 from sqlalchemy import create_engine
 from pandas.io.json import json_normalize
+import fileinput
 
 # Uma boa maneira de começar é tratar e transformar os dados em DataFrames. 
 # Assim fica mais fácil de visualizar depois da transformação e fácil de inserir no PostreSQL.
@@ -11,29 +12,30 @@ from pandas.io.json import json_normalize
 # LEMBRE-SE DE MUDAR O DATATYPE DOS DFs PARA QUE SEJA MAIS FÁCIL FAZER O ANALYTICS DEPOIS.
 
 config = configparser.ConfigParser()
-config.read("../config.cfg")
+config.read("C:/Users/Israel Mendes/Desktop/Coisas/Programação/teste-data-analytics/Etapa1/config.cfg")
 
 def transformJSON(file):
+    print(" >>>> Puxando os dados.")
     df = pd.read_json(file)
     return df
 
 def transformGZIP(file):
+    print(" >>>> Puxando os dados.")
     df = pd.read_parquet(file, engine='pyarrow')
     return df
 
 def transformCSV(file):
+    print(" >>>> Puxando os dados.")
     df = pd.read_csv(file, encoding='utf-16', sep="|", index_col=0)
     return df
 
-# Falta resolver o trailing whitespace entre os números.
 def transformTXT(file):
-    df = pd.read_fwf("C:/Users/Israel Mendes/Desktop/Coisas/Programação/teste-data-analytics/dados/peso_unitario.txt", header=None, encoding='utf-16', sep=' ', names = ["sku", "peso_unitario"])
-    # df = pd.read_csv(file, header=None, encoding='utf-16', sep=' ', names = ["sku", "peso_unitario"])
-    df = df.apply(pd.to_numeric, errors="ignore")
-    return df.dtypes
+    print(" >>>> Puxando os dados.")
+    df = pd.read_csv(file, header=None, encoding='utf-8', sep=' ', names = ["sku", "peso_unitario"], error_bad_lines=False)
+    return df
 
 def load(df, tabela):
-    print(" >>>> Começamos a Conexão")
+    print(" >>>> Começamos a Conexão.")
     engine = create_engine('postgresql+psycopg2://{}:{}@{}:{}/{}'.format(*config['DW'].values()))
     df.to_sql(tabela, engine, if_exists='append', index=False, chunksize=1000)
     engine.dispose()
@@ -41,20 +43,22 @@ def load(df, tabela):
 
 def main():
     df = transformGZIP(tabelas[0][0])
-    print(df.head(1000).max())
-    # load(df, tabelas[0][1])
-
+    df = df.apply(pd.to_numeric, errors="ignore")
+    df['dia_emissao_nota'] = pd.to_datetime(df['dia_emissao_nota'])
+    load(df, tabelas[0][1])
+    
     df = transformJSON(tabelas[1][0])
-    print(df.head(1000).max())
-    # load(df, tabelas[1][1])
+    load(df, tabelas[1][1])
 
     df = transformTXT(tabelas[2][0])
-    print(df.head(1000).max())
-    # load(df, tabelas[2][1])
+    df = df.apply(pd.to_numeric, errors="ignore")
+    load(df, tabelas[2][1])
 
     df = transformCSV(tabelas[3][0])
-    print(df.head(1000).max())
-    # load(df, tabelas[3][1])
+    df['custo_frete'] = df['custo_frete'].str.replace(",",'.')
+    df = df.apply(pd.to_numeric, errors="ignore")
+    df['dia'] = pd.to_datetime(df['dia'])
+    load(df, tabelas[3][1])
     
 
 tabelas = [
