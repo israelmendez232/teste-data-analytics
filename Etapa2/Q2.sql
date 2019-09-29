@@ -1,7 +1,7 @@
 -- Em apenas UMA query.
 /* SELECT 
-    (r.custo_frete / p.peso_unitario * f.quantidade) * p.peso_unitario AS "Regra de Rateio",
-    SUM(r.custo_frete) AS "Custo Total do Frete"
+    p.sku,
+    (r.custo_frete / p.peso_unitario * f.quantidade) * p.peso_unitario AS "Regra de Rateio"
 FROM faturamento f
 JOIN familiasetor s 
 ON f.sku = s.sku
