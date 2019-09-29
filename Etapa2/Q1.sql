@@ -3,7 +3,7 @@ SELECT DISTINCT COUNT(f.sku) AS "Total SKUs", TO_CHAR(f.dia_emissao_nota, 'YYYY'
 FROM faturamento f
 JOIN familiasetor s
 ON f.sku = s.sku
-WHERE s.setor = 'Cachorros'
+WHERE s.familia = 'Cachorros'
 AND EXTRACT(YEAR FROM f.dia_emissao_nota) = '2018'
 GROUP BY TO_CHAR(f.dia_emissao_nota, 'YYYY')
 
@@ -14,5 +14,5 @@ FROM faturamento f
 JOIN familiasetor s
 ON f.sku = s.sku
 WHERE EXTRACT(YEAR FROM f.dia_emissao_nota) = '2018'
-AND s.setor = 'Cachorros'
+AND s.familia = 'Cachorros'
 GROUP BY TO_CHAR(f.dia_emissao_nota, 'YYYY-MM')

@@ -9,8 +9,8 @@ CREATE TABLE "faturamento" (
 
 CREATE TABLE "familiasetor" (
   "sku" INT PRIMARY KEY,
-  "setor" VARCHAR,
-  "familia" VARCHAR
+  "familia" VARCHAR,
+  "setor" VARCHAR
 );
 
 CREATE TABLE "peso_unitario" (
