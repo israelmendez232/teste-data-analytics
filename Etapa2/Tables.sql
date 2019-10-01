@@ -1,3 +1,6 @@
+-- Criação das tabelas dentro do PostgreSQL. 
+-- Lembrando que ao importar também por Python é possível usar o DF para criação das tabelas.
+
 CREATE TABLE "faturamento" (
   "id_nota" INT,
   "sku" INT,

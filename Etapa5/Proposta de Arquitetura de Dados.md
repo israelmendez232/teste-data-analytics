@@ -1,6 +1,6 @@
 # Proposta de Arquitetura de Dados
 
-![Arquitetura de Dados](Arquitetura.png)
+![Arquitetura de Dados](https://raw.githubusercontent.com/israelmendez232/teste-data-analytics/master/Etapa5/Arquitetura.png)
 
 O **objetivo** dessa proposta é apresentar um cenário simples para automatizar e organizar todas as fontes/coletas de dados, sem prejudicar o time de negócios que não pode depender ~~muito~~ do time de Engenharia/BI. Os dados serão **atualizados** *diariamente* (D-1).
 
@@ -39,7 +39,7 @@ Cada ferramenta foi pensada com o objetivo principal (solução fácil para uso 
 
 ## Arquitetura
 
-![Arquitetura de Dados](Arquitetura.png)
+![Arquitetura de Dados](https://raw.githubusercontent.com/israelmendez232/teste-data-analytics/master/Etapa5/Arquitetura.png)
 
 A imagem explica a arquitetura de maneira superficial, mas vamos abordar o principal de cada etapa aqui:
 

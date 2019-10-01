@@ -3,8 +3,10 @@ import configparser
 import csv
 import pandas as pd
 
+# Código para fazer consulta e salvar os dados consultados em .parquet.
+
 config = configparser.ConfigParser()
-config.read("../config.cfg")
+config.read("./config.cfg")
 
 def main(query, número):
     # Conectar com o Banco de Dados
@@ -28,10 +30,10 @@ def main(query, número):
     conn.close()
 
 queries = [
-    "../Etapa2/Q1.sql",
-    "../Etapa2/Q2.sql",
-    "../Etapa2/Q3.sql",
-    "../Etapa2/Q4.sql"
+    "./Etapa2/Q1.sql",
+    "./Etapa2/Q2.sql",
+    "./Etapa2/Q3.sql",
+    "./Etapa2/Q4.sql"
 ]
 
 for i in range(len(queries)):
