@@ -8,7 +8,7 @@ Pequeno teste técnico para uma posição em Data Analytics. Separado nas seguin
 
 3. Consultas Python/Pandas;
 
-4. Visualização de Dados (para acessar o link do dashboard, [clique aqui]());
+4. Visualização de Dados;
 
 5. Proposta de Arquitetura de Dados.
 
